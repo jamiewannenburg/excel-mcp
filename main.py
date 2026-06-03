@@ -13,7 +13,7 @@ def load_excel(file_path: str, sheet_name: Optional[str] = None) -> Dict[str, An
     Load an Excel file and return basic information about the dataset.
     
     Args:
-        file_path: Path to the Excel file (.xlsx or .xls)
+        file_path: Path to the Excel file (.xlsx or .xls or .xlsm)
         sheet_name: Optional specific sheet name to load (default: first sheet)
     
     Returns:
