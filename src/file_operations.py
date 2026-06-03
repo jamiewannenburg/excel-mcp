@@ -30,8 +30,8 @@ class ExcelFileManager:
                 return {"error": f"File not found: {file_path}"}
             
             # Validate file extension
-            if not file_path.lower().endswith(('.xlsx', '.xls')):
-                return {"error": f"Invalid file type. Expected .xlsx or .xls, got: {Path(file_path).suffix}"}
+            if not file_path.lower().endswith(('.xlsx', '.xls', '.xlsm')):
+                return {"error": f"Invalid file type. Expected .xlsx or .xls or .xlsm, got: {Path(file_path).suffix}"}
             
             # Load the Excel file
             if sheet_name:
@@ -74,8 +74,8 @@ class ExcelFileManager:
             if not os.path.exists(file_path):
                 return {"error": f"File not found: {file_path}"}
             
-            if not file_path.lower().endswith(('.xlsx', '.xls')):
-                return {"error": f"Invalid file type. Expected .xlsx or .xls, got: {Path(file_path).suffix}"}
+            if not file_path.lower().endswith(('.xlsx', '.xls', '.xlsm')):
+                return {"error": f"Invalid file type. Expected .xlsx or .xls or .xlsm, got: {Path(file_path).suffix}"}
             
             xl_file = pd.ExcelFile(file_path)
             sheets = xl_file.sheet_names
@@ -119,7 +119,7 @@ class ExcelFileManager:
             }
             
             # If it's an Excel file, get sheet info
-            if file_path.lower().endswith(('.xlsx', '.xls')):
+            if file_path.lower().endswith(('.xlsx', '.xls', '.xlsm')):
                 try:
                     xl_file = pd.ExcelFile(file_path)
                     info.update({
